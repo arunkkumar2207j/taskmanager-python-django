@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'tasks',
     
     'corsheaders',
+    'whitenoise',
 ]
 
 MIDDLEWARE = [
