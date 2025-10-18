@@ -1,6 +1,8 @@
-from rest_framework import viewsets, permissions, filters
+from rest_framework import viewsets, permissions, filters, generics
 from .models import Task
-from .serializers import TaskSerializer
+from .serializers import TaskSerializer, RegisterSerializer
+from django.contrib.auth.models import User
+from rest_framework.permissions import AllowAny
 
 # Create your views here.
 class TaskViewSet(viewsets.ModelViewSet):
@@ -19,3 +21,8 @@ class TaskViewSet(viewsets.ModelViewSet):
 
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
+
+class RegisterView(generics.CreateAPIView):
+    queryset = User.objects.all()
+    serializer_class = RegisterSerializer
+    permission_classes = [AllowAny]
