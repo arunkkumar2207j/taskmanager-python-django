@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 from pathlib import Path
 import os
+import dj_database_url
 
 from django.conf.global_settings import ALLOWED_HOSTS
 
@@ -100,14 +101,19 @@ DATABASES = {
     #     'ENGINE': 'django.db.backends.sqlite3',
     #     'NAME': BASE_DIR / 'db.sqlite3',
     # }
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'taskdb',
-        'USER': 'postgres',
-        'PASSWORD': 'postgres',
-        'HOST': 'localhost',
-        'PORT': '5432',
-    }
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.postgresql',
+    #     'NAME': 'taskdb',
+    #     'USER': 'postgres',
+    #     'PASSWORD': 'postgres',
+    #     'HOST': 'localhost',
+    #     'PORT': '5432',
+    # }
+    'default': dj_database_url.config(
+        default='postgresql://tasksdb_vg9o_user:A0gegTmbK8xm717E7JlDmUkQbeVpd9oC@dpg-d3pth1s9c44c73cbmlj0-a/tasksdb_vg9o',  # fallback for local dev
+        conn_max_age=600,
+        ssl_require=True
+    )
 }
 
 
