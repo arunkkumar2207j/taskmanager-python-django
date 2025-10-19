@@ -188,10 +188,11 @@ SWAGGER_SETTINGS = {
     'DEFAULT_MODEL_RENDERING': 'example',
 }
 
-CORS_ALLOW_ALL_ORIGINS = True
-# CORS_ALLOWED_ORIGINS = [
-#     "https://taskmanager-frontend.vercel.app",
-#     "http://http://127.0.0.1:8000/",
-#     "http://localhost:5173/"
-# ]
+# CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOWED_ORIGINS = [
+    "https://taskmanager-frontend.vercel.app",
+    "https://taskmanager-react-inky.vercel.app",
+    "http://http://127.0.0.1:8000/",
+    "http://localhost:5173/"
+]
 CORS_ALLOW_CREDENTIALS = True
